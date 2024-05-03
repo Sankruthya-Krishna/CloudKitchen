@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/postgres": "^1.7.0",
     "@sap/cds": "^7",
     "express": "^4"
   },
@@ -14,5 +15,19 @@
   },
   "scripts": {
     "start": "cds-serve"
+  },
+  "cds": {
+    "fiori": {
+      "lean_draft": true,
+      "bypass_draft": true
+    },
+    "requires": {
+      "db": {
+        "imp": "@cap-js/postgres",
+        "pool": {
+          "max": 20
+        }
+      }
+    }
   }
 }
