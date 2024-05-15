@@ -8,10 +8,13 @@
   "dependencies": {
     "@cap-js/postgres": "^1.7.0",
     "@sap/cds": "^7",
-    "express": "^4"
+    "express": "^4",
+    "@sap/xssec": "^3",
+    "passport": "^0"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1"
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7.9.1"
   },
   "scripts": {
     "start": "cds-serve"
@@ -27,7 +30,8 @@
         "pool": {
           "max": 20
         }
-      }
+      },
+      "auth": "xsuaa"
     }
   }
 }
