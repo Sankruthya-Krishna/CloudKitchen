@@ -1,4 +1,3 @@
-#connected to postgres
 _schema-version: '3.1'
 ID: cloudkitchen
 version: 1.0.0
@@ -9,6 +8,7 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
+        - npm ci
         - npx cds build --production
 modules:
   - name: cloudkitchen-srv
@@ -26,6 +26,24 @@ modules:
       - name: postgres
       - name: cloudkitchen-auth
 
+  - name: cloudkitchen
+    type: approuter.nodejs
+    path: app/
+    parameters:
+      buildpack: nodejs_buildpack
+      stack: cflinuxfs4
+      keep-existing-routes: true
+      disk-quota: 2048M
+      memory: 256M
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api # must be used in xs-app.json as well
+          url: ~{srv-url}
+          forwardAuthToken: true
+      - name: cloudkitchen-auth
+      
   - name: cloudkitchen-postgres-deployer
     type: nodejs
     path: gen/pg
@@ -45,6 +63,7 @@ resources:
     parameters:
       service: postgresql-db
       service-plan: trial
+      
   - name: cloudkitchen-auth
     type: org.cloudfoundry.managed-service
     parameters:
