@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Fri May 17 2024 10:47:55 GMT+0530 (India Standard Time)|
+|**Generation Date and Time**<br>Mon May 27 2024 16:36:09 GMT+0530 (India Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.12.2|
 |**Generation Platform**<br>Visual Studio Code|
@@ -9,7 +9,7 @@
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/odata/v4/cloud-kitchen/
 |**Module Name**<br>kitchen|
-|**Application Title**<br>Manage kitchens|
+|**Application Title**<br>Main Kitchen|
 |**Namespace**<br>com.test.rdb|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.124.0|
@@ -20,7 +20,7 @@
 
 ## kitchen
 
-manage kitchens
+An SAP Fiori application.
 
 ### Starting the generated app
 
