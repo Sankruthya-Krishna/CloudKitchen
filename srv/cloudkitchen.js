@@ -1,3 +1,4 @@
+const { indexof } = require('@cap-js/postgres/lib/func');
 const cds = require('@sap/cds');
  
 module.exports = cds.service.impl(async function(){
@@ -39,4 +40,16 @@ module.exports = cds.service.impl(async function(){
         await cds.run(insqry);        
     } );
 })
+this.before('UPDATE','ProductLocal', async req => {
+    const {Products, ProductLocal, ProductDescription} = this.entities;
+    console.log(req.data);
+    console.log("Fired Update");
+   
+    //delete(req.data.ProductDescription);
+    console.log(req.data);
+    updqry = UPDATE(ProductDescription).data({"ProductDescription":req.data.ProductDescription}).where({Product: req.data.Product, Language: 'EN'})
+    await productapi.run(updqry);
+});
+
+
    
